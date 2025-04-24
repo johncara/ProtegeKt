@@ -14,6 +14,7 @@ import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import org.caracode.Prompts.Companion.INPUT_PROMPT
 
 @Serializable
 data class ChatMessage(val role: String, val content: String)
@@ -39,9 +40,9 @@ suspend fun main() {
     }
 
     val request = ChatRequest(
-        model = "gpt-3.5-turbo",
+        model = "gpt-4.1",
         messages = listOf(
-            ChatMessage("user", "Hello! What's the weather like in Paris?")
+            ChatMessage("user", INPUT_PROMPT)
         )
     )
 
